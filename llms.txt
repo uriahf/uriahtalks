@@ -1,0 +1,83 @@
+# uriahtalks
+
+Shared data and presentation infrastructure for Uriah Finkel’s talks.
+
+## v0.1 goals
+
+- One canonical smoking teaching dataset used across the
+  conditional-exchangeability, causal-bounds, experimental-bounds, and
+  pure-mediation talks.
+- Presentation-specific views through
+  [`smoking_data()`](https://uriahf.github.io/uriahtalks/reference/smoking_data.md).
+- Validation tests that protect causal truths and published examples
+  during refactoring.
+- A common Quarto/revealjs theme plus ggplot/reactable helpers.
+
+## Current baseline
+
+The current `smoking` object reconstructs the published
+conditional-exchangeability example:
+
+- 16 people.
+- 6 with `x = 0`, 10 with `x = 1`.
+- `E[Y0] = 7/16`, `E[Y1] = 11/16`, so true ATE = `4/16 = 0.25`.
+- Four `(Y0, Y1) = (0, 1)` responders, so PNS = `4/16 = 0.25` under
+  monotonicity.
+- Observational treatment rates `2/6` and `8/10`.
+- Current nonparametric standardization/IPW lands exactly on 0.25;
+  changing the observational assignment without changing the causal
+  types is the first planned data migration.
+
+## Intended API
+
+``` r
+
+library(uriahtalks)
+
+obs <- smoking_data("observational")
+full <- smoking_data("full")
+
+check_smoking_data()
+
+uriah_theme()
+uriah_palette()
+uriah_reactable(obs)
+```
+
+## Next migration steps
+
+1.  Import the mediation potential outcomes from the pure-mediation deck
+    into the canonical `smoking` object.
+2.  Import the experimental assignment used by the experimental-bounds
+    deck.
+3.  Search candidate observational assignments that preserve the shared
+    causal truths but avoid exact finite-sample recovery of the ATE.
+4.  Select the candidate based on pedagogical clarity and simple
+    slide-friendly fractions.
+5.  Migrate conditional exchangeability to `uriahtalks` and tune the
+    shared SCSS against the existing visual style.
+6.  Refactor the remaining decks one at a time.
+
+# Package index
+
+## All functions
+
+- [`check_smoking_data()`](https://uriahf.github.io/uriahtalks/reference/check_smoking_data.md)
+  : Validate the canonical smoking dataset
+- [`smoking`](https://uriahf.github.io/uriahtalks/reference/smoking.md)
+  : Canonical smoking teaching dataset
+- [`smoking_data()`](https://uriahf.github.io/uriahtalks/reference/smoking_data.md)
+  : Return a presentation-specific view of the smoking data
+- [`uriah_palette()`](https://uriahf.github.io/uriahtalks/reference/uriah_palette.md)
+  : Uriah talks semantic color palette
+- [`uriah_reactable()`](https://uriahf.github.io/uriahtalks/reference/uriah_reactable.md)
+  : Shared reactable defaults for Uriah talks
+- [`uriah_theme()`](https://uriahf.github.io/uriahtalks/reference/uriah_theme.md)
+  : Shared ggplot theme for Uriah talks
+
+# Articles
+
+### Get started
+
+- [Getting started with
+  uriahtalks](https://uriahf.github.io/uriahtalks/articles/getting-started.md):
