@@ -1,8 +1,9 @@
 #' Install the shared Quarto extension in a talk project
 #'
 #' Copies the `uriahtalks` Quarto extension bundled with this package into a
-#' project's `_extensions` directory. Existing extension files are refreshed so
-#' presentations use the theme shipped with the installed package.
+#' project's `_extensions` directory and installs the bundled fonts in the
+#' project's `fonts` directory. Existing files are refreshed so presentations
+#' use the theme shipped with the installed package.
 #'
 #' @param path Path to the Quarto project root.
 #' @return Invisibly, the installed extension directory.
@@ -30,6 +31,19 @@ use_uriah_quarto <- function(path = ".") {
       if (!file.copy(from, to, overwrite = TRUE, copy.mode = TRUE)) {
         stop("Failed to install Quarto extension file: ", file, call. = FALSE)
       }
+    }
+  }
+
+  font_source <- file.path(source, "fonts")
+  font_target <- file.path(normalizePath(path, mustWork = TRUE), "fonts")
+  fonts <- list.files(font_source, full.names = TRUE)
+
+  dir.create(font_target, recursive = TRUE, showWarnings = FALSE)
+
+  for (font in fonts) {
+    to <- file.path(font_target, basename(font))
+    if (!file.copy(font, to, overwrite = TRUE, copy.mode = TRUE)) {
+      stop("Failed to install presentation font: ", basename(font), call. = FALSE)
     }
   }
 

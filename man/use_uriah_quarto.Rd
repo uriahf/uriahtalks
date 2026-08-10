@@ -14,6 +14,7 @@ Invisibly, the installed extension directory.
 }
 \description{
 Copies the \code{uriahtalks} Quarto extension bundled with this package into a
-project's \verb{_extensions} directory. Existing extension files are refreshed so
-presentations use the theme shipped with the installed package.
+project's \verb{_extensions} directory and installs the bundled fonts in the
+project's \code{fonts} directory. Existing files are refreshed so presentations
+use the theme shipped with the installed package.
 }
