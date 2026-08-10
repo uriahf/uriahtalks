@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+$body-bg: #F7F2E8;
+$body-color: #252525;
+$link-color: #355C7D;
+$presentation-heading-color: #252525;
+$presentation-font-size-root: 34px;
+
+/*-- scss:rules --*/
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reveal .slide-number {
+  font-size: 0.45em;
+  opacity: 0.55;
+}
+
+.reveal table {
+  width: 100%;
+}
+
+.reveal code {
+  border-radius: 0.2rem;
+}
