@@ -1,7 +1,7 @@
 Package: uriahtalks
 Title: Shared Data and Presentation Infrastructure for Uriah's Talks
 Version: 0.0.0.9000
-Authors@R: person("Uriah", "Finkel", role = c("aut", "cre"))
+Authors@R: person("Uriah", "Finkel", , "ufinkel@gmail.com", role = c("aut", "cre"))
 Description: Shared teaching datasets, validation helpers, visual themes, and
     presentation utilities used across Uriah Finkel's Quarto and revealjs talks.
 License: MIT + file LICENSE
