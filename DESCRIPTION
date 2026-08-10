@@ -16,5 +16,8 @@ Imports:
     rlang,
     tibble
 Suggests:
+    pkgdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+URL: https://uriahf.github.io/uriahtalks/, https://github.com/uriahf/uriahtalks
+BugReports: https://github.com/uriahf/uriahtalks/issues
