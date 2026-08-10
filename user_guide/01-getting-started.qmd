@@ -1,0 +1,38 @@
+---
+title: Getting started
+---
+
+`uriahtalks` provides shared teaching data and presentation infrastructure for Uriah Finkel's talks.
+
+## Install
+
+```r
+# install.packages("pak")
+pak::pak("uriahf/uriahtalks")
+```
+
+## Smoking data
+
+Use the canonical teaching dataset through `smoking_data()`.
+
+```r
+library(uriahtalks)
+
+obs <- smoking_data("observational")
+full <- smoking_data("full")
+```
+
+The observational view is intended for slides that mimic the information available in an observational study. The full view exposes the constructed quantities used to verify the causal examples across presentations.
+
+## Presentation styling
+
+```r
+library(ggplot2)
+
+ggplot(obs, aes(x = x, y = y, colour = factor(a))) +
+  geom_point() +
+  uriah_theme() +
+  scale_color_uriah()
+```
+
+For tables, use `uriah_reactable()` as the common styling layer and keep talk-specific causal logic in the presentation itself.
