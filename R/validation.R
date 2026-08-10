@@ -12,6 +12,8 @@ check_smoking_data <- function(data = smoking) {
   derived_y1 <- ifelse(data$m1 == 1, data$ym1, data$ym0)
   derived_m_obs <- ifelse(data$a_obs == 1, data$m1, data$m0)
   derived_y_obs <- ifelse(data$a_obs == 1, data$y1, data$y0)
+  seeded_experimental_assignment <- c(0L, 0L, 1L, 1L, 1L, 0L, 0L, 1L,
+                                      0L, 0L, 1L, 1L, 1L, 1L, 0L, 0L)
 
   checks <- c(
     "16 individuals" = nrow(data) == 16,
@@ -27,6 +29,8 @@ check_smoking_data <- function(data = smoking) {
     "PNS | x=1 = 2/10" = isTRUE(all.equal(mean(data$y0[data$x == 1] == 0 & data$y1[data$x == 1] == 1), 2 / 10)),
     "P(A=1 | x=0) = 2/6" = isTRUE(all.equal(mean(data$a_obs[data$x == 0]), 2 / 6)),
     "P(A=1 | x=1) = 8/10" = isTRUE(all.equal(mean(data$a_obs[data$x == 1]), 8 / 10)),
+    "experimental assignment reproduces seed 42" = identical(as.integer(data$a_exp), seeded_experimental_assignment),
+    "experimental assignment is balanced" = sum(data$a_exp) == 8,
     "observed mediator satisfies consistency" = all(data$m_obs == derived_m_obs),
     "observed outcome satisfies consistency" = all(data$y_obs == derived_y_obs)
   )
