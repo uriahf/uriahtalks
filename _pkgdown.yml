@@ -1,0 +1,33 @@
+url: https://uriahf.github.io/uriahtalks/
+
+template:
+  bootstrap: 5
+
+home:
+  title: uriahtalks
+  description: Shared teaching data and presentation infrastructure for Uriah Finkel's talks.
+
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [github]
+
+reference:
+  - title: Data
+    contents:
+      - smoking
+      - smoking_data
+      - check_smoking_data
+  - title: Presentation styling
+    contents:
+      - uriah_palette
+      - uriah_theme
+      - scale_color_uriah
+      - scale_fill_uriah
+      - uriah_reactable
+
+articles:
+  - title: Get started
+    navbar: ~
+    contents:
+      - getting-started
