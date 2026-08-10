@@ -1,0 +1,20 @@
+site:
+  title: uriahtalks
+  description: Shared data and presentation infrastructure for Uriah Finkel's talks.
+
+user_guide: user_guide
+
+reference:
+  title: R API Reference
+  desc: >-
+    Reference pages for the public R helpers exported by uriahtalks. Great Docs
+    currently auto-discovers Python APIs, so the R reference is maintained as
+    narrative Quarto pages.
+
+source:
+  branch: main
+
+quarto:
+  website:
+    repo-url: https://github.com/uriahf/uriahtalks
+    repo-actions: [edit, issue]
