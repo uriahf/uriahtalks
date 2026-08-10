@@ -1,0 +1,20 @@
+Package: uriahtalks
+Title: Shared Data and Presentation Infrastructure for Uriah's Talks
+Version: 0.0.0.9000
+Authors@R: person("Uriah", "Finkel", role = c("aut", "cre"))
+Description: Shared teaching datasets, validation helpers, visual themes, and
+    presentation utilities used across Uriah Finkel's Quarto and revealjs talks.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 4.2.0)
+Imports:
+    dplyr,
+    ggplot2,
+    reactable,
+    rlang,
+    tibble
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
