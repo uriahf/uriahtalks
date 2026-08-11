@@ -53,21 +53,6 @@ $presentation-heading-font: "FrauncesLocal", "CommissionerLocal", system-ui, san
   background-color: transparent !important;
 }
 
-.mermaid .nodeLabel > div {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.3em;
-  justify-content: center;
-  line-height: 1.15;
-  white-space: nowrap;
-}
-
-.mermaid .dag-emoji {
-  display: inline-block;
-  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
-  line-height: 1;
-}
-
 .reveal .slide-number {
   font-size: 0.45em;
   opacity: 0.55;
