@@ -12,6 +12,8 @@ from the same canonical data.
 library(uriahtalks)
 
 obs <- smoking_data("observational")
+exp <- smoking_data("experimental")
+med <- smoking_data("mediation")
 full <- smoking_data("full")
 ```
 
@@ -36,6 +38,18 @@ For `reactable` tables:
 ``` r
 
 uriah_reactable(obs)
+```
+
+For a Quarto/revealjs talk, install or refresh the bundled extension in
+the project root and select its format in the presentation front matter:
+
+``` r
+
+use_uriah_quarto()
+```
+
+``` yaml
+format: uriahtalks-revealjs
 ```
 
 Before changing the canonical smoking data, run:

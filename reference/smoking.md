@@ -3,7 +3,7 @@
 A 16-person constructed dataset shared across the smoking-based talks.
 The object stores the potential outcomes used by the observational
 bounds, experimental bounds, and pure mediation presentations, together
-with the realized observational assignment.
+with the realized observational and randomized assignments.
 
 ## Usage
 
@@ -49,7 +49,11 @@ A tibble with 16 rows and columns:
 
 - a_obs:
 
-  Observed/natural smoking assignment in the observational talks.
+  Observed/natural smoking assignment used across observational talks.
+
+- a_exp:
+
+  Frozen randomized assignment from the experimental-bounds talk.
 
 - m_obs:
 
