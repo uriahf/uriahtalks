@@ -1,0 +1,7 @@
+.Rhistory
+.Rproj.user/
+.cache/
+.cran-bin/
+.pkgdown-site*/
+.r-lib/
+docs/

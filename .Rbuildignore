@@ -1,0 +1,10 @@
+^\.github$
+^_pkgdown\.yml$
+^data-raw$
+^great-docs\.yml$
+^user_guide$
+^\.cache$
+^\.cran-bin$
+^\.pkgdown-site.*$
+^\.r-lib$
+^docs$

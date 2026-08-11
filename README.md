@@ -18,7 +18,8 @@ The current `smoking` object reconstructs the published conditional-exchangeabil
 - `E[Y0] = 7/16`, `E[Y1] = 11/16`, so true ATE = `4/16 = 0.25`.
 - Four `(Y0, Y1) = (0, 1)` responders, so PNS = `4/16 = 0.25` under monotonicity.
 - Observational treatment rates `2/6` and `8/10`.
-- Current nonparametric standardization/IPW lands exactly on 0.25; changing the observational assignment without changing the causal types is the first planned data migration.
+- The observational assignment keeps treatment rates at `2/6` and `8/10`. Its naïve contrast is `7/15`; adjustment gives `21/64`, moving toward but not landing exactly on the true ATE.
+- The balanced experimental assignment is frozen from the experimental deck's `set.seed(42)` construction.
 
 ## Intended API
 
@@ -26,6 +27,7 @@ The current `smoking` object reconstructs the published conditional-exchangeabil
 library(uriahtalks)
 
 obs <- smoking_data("observational")
+exp <- smoking_data("experimental")
 full <- smoking_data("full")
 
 check_smoking_data()
@@ -33,13 +35,13 @@ check_smoking_data()
 uriah_theme()
 uriah_palette()
 uriah_reactable(obs)
+use_uriah_quarto()
 ```
+
+In a Quarto presentation, use `format: uriahtalks-revealjs` after installing
+the extension with `use_uriah_quarto()` from the project root.
 
 ## Next migration steps
 
-1. Import the mediation potential outcomes from the pure-mediation deck into the canonical `smoking` object.
-2. Import the experimental assignment used by the experimental-bounds deck.
-3. Search candidate observational assignments that preserve the shared causal truths but avoid exact finite-sample recovery of the ATE.
-4. Select the candidate based on pedagogical clarity and simple slide-friendly fractions.
-5. Migrate conditional exchangeability to `uriahtalks` and tune the shared SCSS against the existing visual style.
-6. Refactor the remaining decks one at a time.
+1. Migrate conditional exchangeability to `uriahtalks` and tune the shared SCSS against the existing visual style.
+2. Refactor the remaining decks one at a time.
