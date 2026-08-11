@@ -49,11 +49,23 @@ $presentation-heading-font: "FrauncesLocal", "CommissionerLocal", system-ui, san
 .Reactable .rt-table,
 .Reactable .rt-thead,
 .Reactable .rt-tbody,
-.Reactable .rt-tfoot,
-.Reactable .rt-tr,
-.Reactable .rt-tr-group,
-.Reactable .rt-sticky {
+.Reactable .rt-tfoot {
   background-color: transparent !important;
+}
+
+.mermaid .nodeLabel > div {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.3em;
+  justify-content: center;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.mermaid .dag-emoji {
+  display: inline-block;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  line-height: 1;
 }
 
 .reveal .slide-number {
@@ -68,3 +80,4 @@ $presentation-heading-font: "FrauncesLocal", "CommissionerLocal", system-ui, san
 .reveal code {
   border-radius: 0.2rem;
 }
+
