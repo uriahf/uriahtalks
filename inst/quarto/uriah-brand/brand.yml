@@ -1,5 +1,28 @@
 meta:
-  name: Uriah Finkel typography
+  name: Uriah Finkel
+
+color:
+  palette:
+    ink: "#10212b"
+    navy: "#173f55"
+    blue: "#2f6f8f"
+    mist: "#e8f2f6"
+    line: "#cfdee5"
+    paper: "#f8fbfc"
+    white: "#ffffff"
+    green: "#39735c"
+    red: "#a64b55"
+  foreground: ink
+  background: paper
+  primary: blue
+  secondary: navy
+  tertiary: mist
+  success: green
+  info: blue
+  warning: navy
+  danger: red
+  light: paper
+  dark: ink
 
 typography:
   fonts:
@@ -26,3 +49,6 @@ typography:
     family: Fraunces
     weight: 300
     line-height: 1.15
+  link:
+    color: primary
+
