@@ -53,6 +53,29 @@ installing the extension with
 [`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md)
 from the project root.
 
+The extension also provides a language-neutral interactive time-horizon
+shortcode for websites, blog posts, and presentations:
+
+``` bash
+quarto add uriahf/uriahtalks
+```
+
+``` markdown
+{{< horizon-explorer >}}
+
+{{< horizon-explorer competing-as-censored="true"
+    title="Competing events treated as censored" >}}
+```
+
+The component uses browser-native JavaScript and SVG. It does not
+require an R, Python, Jupyter, or Observable runtime.
+
+The repository deliberately contains no Python package.
+`_extensions/uriahtalks` is the canonical language-neutral Quarto
+extension; the R package bundles the same files so existing R workflows
+can install them with
+[`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md).
+
 ## Next migration steps
 
 1.  Migrate conditional exchangeability to `uriahtalks` and tune the

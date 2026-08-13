@@ -94,6 +94,14 @@
 <span><span class="fu"><a href="reference/uriah_reactable.html">uriah_reactable</a></span><span class="op">(</span><span class="va">obs</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/use_uriah_quarto.html">use_uriah_quarto</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>In a Quarto presentation, use <code>format: uriahtalks-revealjs</code> after installing the extension with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code> from the project root.</p>
+<p>The extension also provides a language-neutral interactive time-horizon shortcode for websites, blog posts, and presentations:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">quarto</span> add uriahf/uriahtalks</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>{{&lt; horizon-explorer &gt;}}</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>{{&lt; horizon-explorer competing-as-censored="true"</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    title="Competing events treated as censored" &gt;}}</span></code></pre></div>
+<p>The component uses browser-native JavaScript and SVG. It does not require an R, Python, Jupyter, or Observable runtime.</p>
+<p>The repository deliberately contains no Python package. <code>_extensions/uriahtalks</code> is the canonical language-neutral Quarto extension; the R package bundles the same files so existing R workflows can install them with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="next-migration-steps">Next migration steps<a class="anchor" aria-label="anchor" href="#next-migration-steps"></a>
