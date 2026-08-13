@@ -5,3 +5,5 @@ contributes:
   formats:
     revealjs:
       theme: [default, uriahtalks.scss]
+  shortcodes:
+    - horizon-explorer.lua
