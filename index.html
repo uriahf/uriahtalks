@@ -99,8 +99,12 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>{{&lt; horizon-explorer &gt;}}</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>{{&lt; horizon-explorer competing-as-censored="true"</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    title="Competing events treated as censored" &gt;}}</span></code></pre></div>
-<p>The component uses browser-native JavaScript and SVG. It does not require an R, Python, Jupyter, or Observable runtime.</p>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    title="Competing events treated as censored" &gt;}}</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>{{&lt; horizon-explorer competing-as-censored="true"</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    min="1" max="5" step="1" horizon="3"</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    accent-color="#ce3d15" &gt;}}</span></code></pre></div>
+<p>The component uses browser-native JavaScript and SVG. It does not require an R, Python, Jupyter, or Observable runtime. Example follow-up times scale to the configured maximum horizon, and <code>accent-color</code> controls the slider and horizon line.</p>
 <p>The repository deliberately contains no Python package. <code>_extensions/uriahtalks</code> is the canonical language-neutral Quarto extension; the R package bundles the same files so existing R workflows can install them with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code>.</p>
 </div>
 <div class="section level2">

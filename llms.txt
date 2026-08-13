@@ -65,10 +65,16 @@ quarto add uriahf/uriahtalks
 
 {{< horizon-explorer competing-as-censored="true"
     title="Competing events treated as censored" >}}
+
+{{< horizon-explorer competing-as-censored="true"
+    min="1" max="5" step="1" horizon="3"
+    accent-color="#ce3d15" >}}
 ```
 
 The component uses browser-native JavaScript and SVG. It does not
-require an R, Python, Jupyter, or Observable runtime.
+require an R, Python, Jupyter, or Observable runtime. Example follow-up
+times scale to the configured maximum horizon, and `accent-color`
+controls the slider and horizon line.
 
 The repository deliberately contains no Python package.
 `_extensions/uriahtalks` is the canonical language-neutral Quarto
