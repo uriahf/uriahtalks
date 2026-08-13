@@ -8,3 +8,5 @@
 ^\.pkgdown-site.*$
 ^\.r-lib$
 ^docs$
+^examples$
+^_extensions$
