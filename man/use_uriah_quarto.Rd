@@ -2,7 +2,7 @@
 % Please edit documentation in R/quarto.R
 \name{use_uriah_quarto}
 \alias{use_uriah_quarto}
-\title{Install the shared Quarto extension in a talk project}
+\title{Install the shared Quarto extensions in a project}
 \usage{
 use_uriah_quarto(path = ".")
 }
@@ -10,11 +10,11 @@ use_uriah_quarto(path = ".")
 \item{path}{Path to the Quarto project root.}
 }
 \value{
-Invisibly, the installed extension directory.
+Invisibly, the installed presentation extension directory.
 }
 \description{
-Copies the \code{uriahtalks} Quarto extension bundled with this package into a
-project's \verb{_extensions} directory and installs the bundled fonts in the
-project's \code{fonts} directory. Existing files are refreshed so presentations
-use the theme shipped with the installed package.
+Copies the \code{uriahtalks} presentation and brand extensions bundled with this
+package into a project's \verb{_extensions} directory. It also installs the
+presentation fonts in the project's \code{fonts} directory. Existing files are
+refreshed so projects use the extensions shipped with the installed package.
 }
