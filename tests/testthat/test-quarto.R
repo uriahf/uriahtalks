@@ -9,14 +9,13 @@ test_that("shared Quarto extensions can be installed in a project", {
   expect_true(file.exists(file.path(extension, "horizon-explorer.lua")))
   expect_true(file.exists(file.path(brand, "_extension.yml")))
   expect_true(file.exists(file.path(brand, "brand.yml")))
-  expect_true(file.exists(file.path(brand, "docs.css")))
   expect_true(file.exists(file.path(brand, "fonts", "commissioner-v13-latin-regular.woff2")))
   expect_true(file.exists(file.path(brand, "fonts", "Fraunces9pt-Light.woff2")))
   expect_true(file.exists(file.path(project, "fonts", "commissioner-v13-latin-regular.woff2")))
   expect_true(file.exists(file.path(project, "fonts", "Fraunces9pt-Light.woff2")))
 })
 
-test_that("shared brand defines the documentation palette and typography", {
+test_that("shared brand defines typography without overriding project colors", {
   brand <- readLines(
     system.file("quarto", "uriah-brand", "brand.yml", package = "uriahtalks"),
     warn = FALSE
@@ -24,9 +23,7 @@ test_that("shared brand defines the documentation palette and typography", {
 
   expect_true(any(grepl("Commissioner", brand, fixed = TRUE)))
   expect_true(any(grepl("Fraunces", brand, fixed = TRUE)))
-  expect_true(any(grepl("^color:", brand)))
-  expect_true(any(grepl('blue: "#2f6f8f"', brand, fixed = TRUE)))
-  expect_false(any(grepl("orange", brand, ignore.case = TRUE)))
+  expect_false(any(grepl("^color:", brand)))
 })
 
 test_that("horizon explorer supports observed and censoring modes", {
@@ -46,7 +43,7 @@ test_that("standalone and R-bundled extensions stay synchronized", {
   root <- testthat::test_path("..", "..")
   extension_files <- list(
     uriahtalks = c("_extension.yml", "horizon-explorer.lua", "uriahtalks.scss"),
-    "uriah-brand" = c("_extension.yml", "brand.yml", "docs.css")
+    "uriah-brand" = c("_extension.yml", "brand.yml")
   )
 
   for (extension_name in names(extension_files)) {
@@ -62,4 +59,3 @@ test_that("standalone and R-bundled extensions stay synchronized", {
     }
   }
 })
-
