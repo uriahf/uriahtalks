@@ -24,6 +24,22 @@ full <- smoking_data("full")
 
 The observational view is intended for slides that mimic the information available in an observational study. The full view exposes the constructed quantities used to verify the causal examples across presentations.
 
+## Shared typography
+
+For any Quarto project, install the repository's extensions from the project root:
+
+```bash
+quarto add uriahf/uriahtalks
+```
+
+R users can install the same bundled extensions with:
+
+```r
+uriahtalks::use_uriah_quarto()
+```
+
+The shared brand uses Commissioner for body text and Fraunces for headings. It deliberately defines typography only, so each project keeps its own color palette. Quarto copies the font files into the project, making rendered sites and presentations self-contained.
+
 ## Presentation styling
 
 ```r
