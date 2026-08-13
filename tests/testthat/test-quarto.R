@@ -19,6 +19,8 @@ test_that("horizon explorer supports observed and censoring modes", {
   expect_true(any(grepl('competing-as-censored', shortcode, fixed = TRUE)))
   expect_true(any(grepl('Competing event', shortcode, fixed = TRUE)))
   expect_true(any(grepl('Censored', shortcode, fixed = TRUE)))
+  expect_true(any(grepl('timeFraction', shortcode, fixed = TRUE)))
+  expect_true(any(grepl('accent-color', shortcode, fixed = TRUE)))
 })
 
 test_that("standalone and R-bundled extensions stay synchronized", {

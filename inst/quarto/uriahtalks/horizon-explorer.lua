@@ -23,6 +23,7 @@ local function horizon_explorer(args, kwargs)
   local maximum_horizon = number_or(kwargs["max"], 50)
   local step = number_or(kwargs["step"], 5)
   local title = pandoc.utils.stringify(kwargs["title"] or "Explore the horizon")
+  local accent_color = pandoc.utils.stringify(kwargs["accent-color"] or "#7a9a01")
   local mode = competing_as_censored and "competing-as-censored" or "observed"
 
   local html = string.format([[
@@ -43,17 +44,17 @@ local function horizon_explorer(args, kwargs)
   if (!root || root.dataset.ready === "true") return;
   root.dataset.ready = "true";
 
-  const observations = [
-    {id: 1, time: 24.1, outcome: "primary"},
-    {id: 2, time: 9.7, outcome: "primary"},
-    {id: 3, time: 49.9, outcome: "primary"},
-    {id: 4, time: 18.6, outcome: "primary"},
-    {id: 5, time: 34.8, outcome: "none"},
-    {id: 6, time: 14.2, outcome: "competing"},
-    {id: 7, time: 39.2, outcome: "primary"},
-    {id: 8, time: 46.0, outcome: "competing"},
-    {id: 9, time: 31.5, outcome: "none"},
-    {id: 10, time: 4.3, outcome: "primary"}
+  const observationPatterns = [
+    {id: 1, timeFraction: 0.482, outcome: "primary"},
+    {id: 2, timeFraction: 0.194, outcome: "primary"},
+    {id: 3, timeFraction: 0.998, outcome: "primary"},
+    {id: 4, timeFraction: 0.372, outcome: "primary"},
+    {id: 5, timeFraction: 0.696, outcome: "none"},
+    {id: 6, timeFraction: 0.284, outcome: "competing"},
+    {id: 7, timeFraction: 0.784, outcome: "primary"},
+    {id: 8, timeFraction: 0.920, outcome: "competing"},
+    {id: 9, timeFraction: 0.630, outcome: "none"},
+    {id: 10, timeFraction: 0.086, outcome: "primary"}
   ];
 
   const states = {
@@ -68,6 +69,10 @@ local function horizon_explorer(args, kwargs)
   const chart = root.querySelector(".uriah-horizon-chart");
   const key = root.querySelector(".uriah-horizon-key");
   const maxTime = Number(input.max);
+  const observations = observationPatterns.map(d => ({
+    ...d,
+    time: d.timeFraction * maxTime
+  }));
   const competingAsCensored = root.dataset.mode === "competing-as-censored";
   const ns = "http://www.w3.org/2000/svg";
 
@@ -96,7 +101,8 @@ local function horizon_explorer(args, kwargs)
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     svg.setAttribute("class", "uriah-horizon-svg");
 
-    for (let tick = 0; tick <= maxTime; tick += 10) {
+    const tickStep = Math.max(Number(input.step), maxTime / 5);
+    for (let tick = 0; tick <= maxTime; tick += tickStep) {
       const tickLine = document.createElementNS(ns, "line");
       tickLine.setAttribute("x1", x(tick));
       tickLine.setAttribute("x2", x(tick));
@@ -109,7 +115,7 @@ local function horizon_explorer(args, kwargs)
       tickText.setAttribute("x", x(tick));
       tickText.setAttribute("y", height - margin.bottom + 24);
       tickText.setAttribute("class", "uriah-tick");
-      tickText.textContent = tick;
+      tickText.textContent = Number(tick.toFixed(2));
       svg.appendChild(tickText);
     }
 
@@ -154,7 +160,7 @@ local function horizon_explorer(args, kwargs)
       marker.setAttribute("class", "uriah-emoji-marker");
       marker.textContent = state.icon;
       const tooltip = document.createElementNS(ns, "title");
-      tooltip.textContent = `Observation ${d.id}: ${state.label}; observed time ${d.time}`;
+      tooltip.textContent = `Observation ${d.id}: ${state.label}; observed time ${Number(d.time.toFixed(2))}`;
       marker.appendChild(tooltip);
       svg.appendChild(marker);
     });
@@ -188,7 +194,7 @@ local function horizon_explorer(args, kwargs)
   margin-bottom: .65rem;
 }
 #%s .uriah-horizon-control { display: grid; gap: .3rem; max-width: 34rem; }
-#%s input[type="range"] { width: 100%%; accent-color: #7a9a01; }
+#%s input[type="range"] { width: 100%%; accent-color: %s; }
 #%s .uriah-horizon-chart { width: 100%%; overflow-x: auto; background: transparent; }
 #%s .uriah-horizon-svg { display: block; width: 100%%; min-width: 620px; background: transparent; }
 #%s .uriah-axis { stroke: currentColor; stroke-width: 1; }
@@ -198,7 +204,7 @@ local function horizon_explorer(args, kwargs)
 #%s .uriah-tick, #%s .uriah-axis-label { text-anchor: middle; }
 #%s .uriah-row-label { text-anchor: end; dominant-baseline: middle; }
 #%s .uriah-followup-line { stroke: color-mix(in srgb, currentColor 38%%, transparent); stroke-width: 2; }
-#%s .uriah-horizon-line { stroke: #7a9a01; stroke-width: 4; stroke-dasharray: 7 6; }
+#%s .uriah-horizon-line { stroke: %s; stroke-width: 4; stroke-dasharray: 7 6; }
 #%s .uriah-emoji-marker {
   font: 30px "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
   text-anchor: middle; dominant-baseline: central; cursor: help;
@@ -207,8 +213,8 @@ local function horizon_explorer(args, kwargs)
 @media (max-width: 650px) { #%s .uriah-horizon-svg { width: 720px; } }
 </style>
 ]], id, mode, title, initial_horizon, minimum_horizon, maximum_horizon, step,
-    initial_horizon, id, id, id, id, id, id, id, id, id, id, id, id, id, id,
-    id, id, id, id, id, id)
+    initial_horizon, id, id, id, id, accent_color, id, id, id, id, id, id, id,
+    id, id, id, id, id, id, accent_color, id, id, id)
 
   return pandoc.RawBlock("html", html)
 end
