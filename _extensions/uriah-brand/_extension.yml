@@ -1,0 +1,7 @@
+title: Uriah Brand
+author: Uriah Finkel
+version: 0.0.1
+contributes:
+  metadata:
+    project:
+      brand: brand.yml
