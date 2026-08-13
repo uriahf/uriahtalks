@@ -15,4 +15,4 @@
 - [`uriah_theme()`](https://uriahf.github.io/uriahtalks/reference/uriah_theme.md)
   : Shared ggplot theme for Uriah talks
 - [`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md)
-  : Install the shared Quarto extension in a talk project
+  : Install the shared Quarto extensions in a project

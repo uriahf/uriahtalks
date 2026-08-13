@@ -51,7 +51,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="uriahtalks">uriahtalks<a class="anchor" aria-label="anchor" href="#uriahtalks"></a>
 </h1></div>
-<p>Shared data and presentation infrastructure for Uriah Finkel’s talks.</p>
+<p>Shared data, typography, and presentation infrastructure for Uriah Finkel’s talks and documentation.</p>
 <div class="section level2">
 <h2 id="v01-goals">v0.1 goals<a class="anchor" aria-label="anchor" href="#v01-goals"></a>
 </h2>
@@ -59,6 +59,7 @@
 <li>One canonical smoking teaching dataset used across the conditional-exchangeability, causal-bounds, experimental-bounds, and pure-mediation talks.</li>
 <li>Presentation-specific views through <code><a href="reference/smoking_data.html">smoking_data()</a></code>.</li>
 <li>Validation tests that protect causal truths and published examples during refactoring.</li>
+<li>Shared Commissioner/Fraunces typography across Quarto projects.</li>
 <li>A common Quarto/revealjs theme plus ggplot/reactable helpers.</li>
 </ul>
 </div>
@@ -93,9 +94,18 @@
 <span><span class="fu"><a href="reference/uriah_palette.html">uriah_palette</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/uriah_reactable.html">uriah_reactable</a></span><span class="op">(</span><span class="va">obs</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/use_uriah_quarto.html">use_uriah_quarto</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>In a Quarto presentation, use <code>format: uriahtalks-revealjs</code> after installing the extension with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code> from the project root.</p>
-<p>The extension also provides a language-neutral interactive time-horizon shortcode for websites, blog posts, and presentations:</p>
+<div class="section level3">
+<h3 id="shared-quarto-typography">Shared Quarto typography<a class="anchor" aria-label="anchor" href="#shared-quarto-typography"></a>
+</h3>
+<p>For any Quarto project, install the repository’s extensions from the project root:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">quarto</span> add uriahf/uriahtalks</span></code></pre></div>
+<p>The <code>uriah-brand</code> extension applies Commissioner to body text and Fraunces to headings. It intentionally contains no colors, logo, or favicon, so downstream projects retain their own visual identity. R users can install the same bundled extensions with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code>.</p>
+<p>In a Quarto presentation, use <code>format: uriahtalks-revealjs</code> after installing the extensions.</p>
+</div>
+<div class="section level3">
+<h3 id="interactive-time-horizon-component">Interactive time-horizon component<a class="anchor" aria-label="anchor" href="#interactive-time-horizon-component"></a>
+</h3>
+<p>The repository also provides a language-neutral interactive time-horizon shortcode for websites, blog posts, and presentations:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>{{&lt; horizon-explorer &gt;}}</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>{{&lt; horizon-explorer competing-as-censored="true"</span>
@@ -105,7 +115,8 @@
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    min="1" max="5" step="1" horizon="3"</span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    accent-color="#ce3d15" &gt;}}</span></code></pre></div>
 <p>The component uses browser-native JavaScript and SVG. It does not require an R, Python, Jupyter, or Observable runtime. Example follow-up times scale to the configured maximum horizon, and <code>accent-color</code> controls the slider and horizon line.</p>
-<p>The repository deliberately contains no Python package. <code>_extensions/uriahtalks</code> is the canonical language-neutral Quarto extension; the R package bundles the same files so existing R workflows can install them with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code>.</p>
+<p>The repository deliberately contains no Python package. <code>_extensions/uriahtalks</code> is the canonical language-neutral presentation extension and <code>_extensions/uriah-brand</code> is the canonical shared typography extension. The R package bundles the same files so existing R workflows can install them with <code><a href="reference/use_uriah_quarto.html">use_uriah_quarto()</a></code>.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="next-migration-steps">Next migration steps<a class="anchor" aria-label="anchor" href="#next-migration-steps"></a>

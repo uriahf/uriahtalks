@@ -1,9 +1,10 @@
-# Install the shared Quarto extension in a talk project
+# Install the shared Quarto extensions in a project
 
-Copies the `uriahtalks` Quarto extension bundled with this package into
-a project's `_extensions` directory and installs the bundled fonts in
-the project's `fonts` directory. Existing files are refreshed so
-presentations use the theme shipped with the installed package.
+Copies the `uriahtalks` presentation and brand extensions bundled with
+this package into a project's `_extensions` directory. It also installs
+the presentation fonts in the project's `fonts` directory. Existing
+files are refreshed so projects use the extensions shipped with the
+installed package.
 
 ## Usage
 
@@ -19,4 +20,4 @@ use_uriah_quarto(path = ".")
 
 ## Value
 
-Invisibly, the installed extension directory.
+Invisibly, the installed presentation extension directory.

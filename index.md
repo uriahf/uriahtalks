@@ -1,6 +1,7 @@
 # uriahtalks
 
-Shared data and presentation infrastructure for Uriah Finkel’s talks.
+Shared data, typography, and presentation infrastructure for Uriah
+Finkel’s talks and documentation.
 
 ## v0.1 goals
 
@@ -11,6 +12,7 @@ Shared data and presentation infrastructure for Uriah Finkel’s talks.
   [`smoking_data()`](https://uriahf.github.io/uriahtalks/reference/smoking_data.md).
 - Validation tests that protect causal truths and published examples
   during refactoring.
+- Shared Commissioner/Fraunces typography across Quarto projects.
 - A common Quarto/revealjs theme plus ggplot/reactable helpers.
 
 ## Current baseline
@@ -48,17 +50,28 @@ uriah_reactable(obs)
 use_uriah_quarto()
 ```
 
-In a Quarto presentation, use `format: uriahtalks-revealjs` after
-installing the extension with
-[`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md)
-from the project root.
+### Shared Quarto typography
 
-The extension also provides a language-neutral interactive time-horizon
-shortcode for websites, blog posts, and presentations:
+For any Quarto project, install the repository’s extensions from the
+project root:
 
 ``` bash
 quarto add uriahf/uriahtalks
 ```
+
+The `uriah-brand` extension applies Commissioner to body text and
+Fraunces to headings. It intentionally contains no colors, logo, or
+favicon, so downstream projects retain their own visual identity. R
+users can install the same bundled extensions with
+[`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md).
+
+In a Quarto presentation, use `format: uriahtalks-revealjs` after
+installing the extensions.
+
+### Interactive time-horizon component
+
+The repository also provides a language-neutral interactive time-horizon
+shortcode for websites, blog posts, and presentations:
 
 ``` markdown
 {{< horizon-explorer >}}
@@ -77,9 +90,10 @@ times scale to the configured maximum horizon, and `accent-color`
 controls the slider and horizon line.
 
 The repository deliberately contains no Python package.
-`_extensions/uriahtalks` is the canonical language-neutral Quarto
-extension; the R package bundles the same files so existing R workflows
-can install them with
+`_extensions/uriahtalks` is the canonical language-neutral presentation
+extension and `_extensions/uriah-brand` is the canonical shared
+typography extension. The R package bundles the same files so existing R
+workflows can install them with
 [`use_uriah_quarto()`](https://uriahf.github.io/uriahtalks/reference/use_uriah_quarto.md).
 
 ## Next migration steps
