@@ -1,0 +1,17 @@
+---
+title: "Time-horizon explorer"
+---
+
+The same cohort can be displayed under different competing-event assumptions.
+
+## Observed competing events
+
+{{< horizon-explorer title="Observed competing events" >}}
+
+Competing events retain their distinct 💀 state.
+
+## Competing events treated as censored
+
+{{< horizon-explorer competing-as-censored="true" title="Competing events treated as censored" >}}
+
+Once observed, competing events are displayed as censored 🤬 observations.
